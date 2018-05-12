@@ -17,7 +17,8 @@ class UploadPhoto extends Component {
             <div>
                 <label htmlFor="username">USERNAME: </label>
                 <input type="text" id="usrename" onChange={(e) => this.getUsername(e.target.value)} />
-                <input type="file" name="" id="" onChange={(e) => this.props.uploadPhoto(e.target.files, this.state.username)} />
+                <label htmlFor="url">Photo URL: </label>
+                <input type="text" name="" id="url" placeholder="Input photo url" onChange={(e) => this.props.uploadPhoto(e.target.value, this.state.username)} />
                 <button onClick={() => this.props.showAllphoto()} >Submit</button>
             </div>
         );
