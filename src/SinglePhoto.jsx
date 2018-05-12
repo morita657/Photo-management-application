@@ -8,7 +8,7 @@ class SinglePhoto extends Component {
     render() {
         return (
             <div>
-                this is single photo
+                <img src={this.props.photo} />
             </div>
         );
     }

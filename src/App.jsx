@@ -22,8 +22,6 @@ class App extends Component {
         return this.setState({ view: 'ShowAllPhoto' });
     };
     showSinglephoto() {
-        console.log('hi');
-        // return;
         return this.setState({ view: 'ShowSinglePhoto' });
     };
     showSelectedPhoto(id) {
@@ -35,7 +33,7 @@ class App extends Component {
             return (<AllPhoto photos={this.state.photos} showSelectedPhoto={this.showSelectedPhoto} />);
         }
         if (this.state.view === "ShowSinglePhoto") {
-            return (<SinglePhoto />);
+            return (<SinglePhoto photo={this.state.photos[this.state.id]} />);
         }
     }
     render() {
@@ -43,7 +41,6 @@ class App extends Component {
             <div>
                 <Title showSinglephoto={this.showSinglephoto} />
                 {this.currentView}
-                {/* <AllPhoto photos={this.state.photos} showSelectedPhoto={this.showSelectedPhoto} /> */}
             </div>
         );
     }
