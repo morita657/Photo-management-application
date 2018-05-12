@@ -20,6 +20,7 @@ class App extends Component {
         this.showSelectedPhoto = this.showSelectedPhoto.bind(this);
         this.showUploadPhoto = this.showUploadPhoto.bind(this);
         this.uploadPhoto = this.uploadPhoto.bind(this);
+        this.deletePhoto = this.deletePhoto.bind(this);
     }
     showAllphoto() {
         return this.setState({ view: 'ShowAllPhoto' });
@@ -55,15 +56,21 @@ class App extends Component {
             updatedData.push(photoInfo);
             localStorage.setItem("insta-hack", JSON.stringify(updatedData));
         }
-        // const photoList = localStorage.getItem("insta-hack");
         return this.setState({ photos: JSON.parse(storage) });
+    }
+    deletePhoto(id) {
+        const storage = localStorage.getItem("insta-hack");
+        const raw = JSON.parse(storage);
+        raw.splice(id, 1);
+        localStorage.setItem("insta-hack", JSON.stringify(raw));
+        this.showAllphoto();
     }
     get currentView() {
         if (this.state.view === "ShowAllPhoto") {
             return (<AllPhoto photos={this.state.photos} showSelectedPhoto={this.showSelectedPhoto} />);
         }
         if (this.state.view === "ShowSinglePhoto") {
-            return (<SinglePhoto photo={this.state.photos[this.state.id]} />);
+            return (<SinglePhoto photo={this.state.photos[this.state.id]} deletePhoto={this.deletePhoto} id={this.state.id} />);
         }
         if (this.state.view === "UploadPhoto") {
             return (<UploadPhoto uploadPhoto={this.uploadPhoto} showAllphoto={this.showAllphoto} />);
