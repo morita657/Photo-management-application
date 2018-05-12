@@ -10,6 +10,7 @@ class Title extends Component {
             <div>
                 <button onClick={() => this.props.showAllphoto()}>HOME</button>
                 <h1>INSTA-HACK - The Hacky Instagram!</h1>
+                <button onClick={() => this.props.showUploadPhoto()}>UPLOAD</button>
             </div>
         );
     }
