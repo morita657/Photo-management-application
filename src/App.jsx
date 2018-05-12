@@ -26,6 +26,7 @@ class App extends Component {
     };
     showSelectedPhoto(id) {
         const newState = this.setState({ id });
+        this.showSinglephoto();
         return newState;
     }
     get currentView() {
@@ -39,7 +40,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Title showSinglephoto={this.showSinglephoto} />
+                <Title showAllphoto={this.showAllphoto} />
                 {this.currentView}
             </div>
         );

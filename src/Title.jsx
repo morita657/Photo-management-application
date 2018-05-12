@@ -8,7 +8,7 @@ class Title extends Component {
     render() {
         return (
             <div>
-                <button onClick={() => this.props.showSinglephoto()}>HOME</button>
+                <button onClick={() => this.props.showAllphoto()}>HOME</button>
                 <h1>INSTA-HACK - The Hacky Instagram!</h1>
             </div>
         );
