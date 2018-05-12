@@ -36,8 +36,17 @@ class App extends Component {
         return newState;
     }
     uploadPhoto(file, name) {
-        console.log('name', name);
-        console.log(file[0]["name"]);
+        const storage = localStorage.getItem("insta-hack");
+        const photoInfo = { "username": name, "photoPath": file[0]["name"], "timestamp": new Date() };
+        if (storage === null) {
+            localStorage.setItem("insta-hack", JSON.stringify([photoInfo]));
+        }
+        else {
+            // convert storage value into array and push new value
+            const updatedData = JSON.parse(storage)
+            updatedData.push(photoInfo);
+            localStorage.setItem("insta-hack", JSON.stringify(updatedData));
+        }
     }
     get currentView() {
         if (this.state.view === "ShowAllPhoto") {
