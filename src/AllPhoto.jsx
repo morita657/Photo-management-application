@@ -12,7 +12,7 @@ class AllPhoto extends Component {
         return (
             <div>
                 {this.props.photos.map((photo, id) => {
-                    return <img src={photo} key={id} width="350" height="150" onClick={() => this.props.showSelectedPhoto(id)} />
+                    return <img src={photo.photoPath} key={id} width="350" height="150" onClick={() => this.props.showSelectedPhoto(id)} />
                 })}
             </div>
         );
