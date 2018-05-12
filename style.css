@@ -24,3 +24,7 @@ body{
       width: 450px;
       color: red;
   }
+  #single-img{
+      width: 50%;
+      float: left;
+  }

@@ -17,7 +17,7 @@ class SinglePhoto extends Component {
 
         return (
             <div>
-                <img src={this.props.photo["photoPath"]} />
+                <img id="single-img" src={this.props.photo["photoPath"]} />
                 <p>username: <span>{this.props.photo["username"]}</span></p>
                 <p>{this.timeConvert}</p>
                 <button onClick={() => this.props.deletePhoto(this.props.id)}>DELETE</button>
