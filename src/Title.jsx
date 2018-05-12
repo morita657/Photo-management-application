@@ -7,15 +7,17 @@ class Title extends Component {
     }
     get uploadButtonSwitch() {
         if (this.props.view === "ShowAllPhoto") {
-            return <button onClick={() => this.props.showUploadPhoto()}>UPLOAD</button>;
+            return <li id="upload" onClick={() => this.props.showUploadPhoto()}>UPLOAD</li>;
         }
     }
     render() {
         return (
-            <div>
-                <button onClick={() => this.props.showAllphoto()}>HOME</button>
-                <h1>INSTA-HACK - The Hacky Instagram!</h1>
-                {this.uploadButtonSwitch}
+            <div className="title-bar">
+                <ul>
+                    <li id="home" onClick={() => this.props.showAllphoto()}>HOME</li>
+                    <li id="title">INSTA-HACK - The Hacky Instagram!</li>
+                    {this.uploadButtonSwitch}
+                </ul>
             </div>
         );
     }
