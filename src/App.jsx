@@ -79,7 +79,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Title showAllphoto={this.showAllphoto} uploadPhoto={this.uploadPhoto} showUploadPhoto={this.showUploadPhoto} />
+                <Title showAllphoto={this.showAllphoto} uploadPhoto={this.uploadPhoto} showUploadPhoto={this.showUploadPhoto} view={this.state.view} />
                 {this.currentView}
             </div>
         );
