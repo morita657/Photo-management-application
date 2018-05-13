@@ -17,8 +17,6 @@ class UploadPhoto extends Component {
         return this.setState({ url })
     }
     render() {
-        console.log('now upload photo compo.');
-
         return (
             <div>
                 <label htmlFor="username">USERNAME: </label>

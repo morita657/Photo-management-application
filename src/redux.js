@@ -27,12 +27,10 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 isLoaded: true,
                 view: "ShowAllPhoto",
-
             };
             return newState;
         }
         case "ShowSinglePhoto": {
-            console.log('actions', action);
             const newState = {
                 ...state,
                 id: action.id,
@@ -70,7 +68,6 @@ const reducer = (state = initialState, action) => {
                 updatedData.push(photoInfo);
                 localStorage.setItem("insta-hack", JSON.stringify(updatedData));
             }
-
             const newPhotos = JSON.parse(localStorage.getItem("insta-hack"));
             const newState = ({
                 ...state,
