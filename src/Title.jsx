@@ -8,12 +8,6 @@ class Title extends Component {
             return <li id="upload" onClick={() => this.props.showUploadPhoto()}>UPLOAD</li>;
         }
     }
-    // get getPhotos() {
-    //     const storage = localStorage.getItem("insta-hack");
-    //     if (storage !== null) {
-    //         return JSON.parse(storage);
-    //     }
-    // }
     render() {
         return (
             <div className="title-bar">
@@ -33,7 +27,7 @@ const mapDispatchToProps = (dispatch) => {
             return dispatch({ type: "ShowAllPhoto" })
         },
         showUploadPhoto: () => {
-            return dispatch({ type: "UploadPhoto" })
+            return dispatch({ type: "ViewUploadPage" })
         }
     };
 };
