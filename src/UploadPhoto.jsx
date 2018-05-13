@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import { connect } from "react-redux";
 
 class UploadPhoto extends Component {
     constructor(props) {
@@ -24,5 +25,17 @@ class UploadPhoto extends Component {
         );
     }
 }
-export default UploadPhoto;
-
+const mapDispatchToProps = (dispatch) => {
+    return {
+        showAllphoto: () => {
+            return dispatch({ type: "ShowAllPhoto" });
+        },
+        uploadPhoto: (url, username) => {
+            return dispatch({ type: "UploadPhoto", username, url });
+        }
+    };
+};
+const mapStateToProps = (state) => {
+    return ({ view: state.view, photos: state.photos })
+};
+export default connect(mapStateToProps, mapDispatchToProps)(UploadPhoto);
