@@ -53,6 +53,12 @@ const reducer = (state = initialState, action) => {
             });
             return newState;
         }
+        case "ViewUploadPage": {
+            return {
+                ...state,
+                view: "UploadPhoto"
+            };
+        }
         case "UploadPhoto": {
             const storage = localStorage.getItem("insta-hack");
             const photoInfo = { "username": action.username, "photoPath": action.url, "timestamp": new Date() };
@@ -64,11 +70,12 @@ const reducer = (state = initialState, action) => {
                 updatedData.push(photoInfo);
                 localStorage.setItem("insta-hack", JSON.stringify(updatedData));
             }
+
             const newPhotos = JSON.parse(localStorage.getItem("insta-hack"));
             const newState = ({
                 ...state,
                 photos: newPhotos,
-                view: "UploadPhoto",
+                view: "ShowAllPhoto",
             });
             return newState;
         }
