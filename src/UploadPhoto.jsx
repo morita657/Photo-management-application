@@ -6,21 +6,26 @@ class UploadPhoto extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: ""
+            username: "",
+            url: "",
         }
-        this.getUsername = this.getUsername.bind(this);
     }
     getUsername(username) {
         return this.setState({ username })
     }
+    getUrl(url) {
+        return this.setState({ url })
+    }
     render() {
+        console.log('now upload photo compo.');
+
         return (
             <div>
                 <label htmlFor="username">USERNAME: </label>
                 <input type="text" id="usrename" onChange={(e) => this.getUsername(e.target.value)} />
                 <label htmlFor="url">Photo URL: </label>
-                <input type="text" name="" id="url" placeholder="Input photo url" onChange={(e) => this.props.uploadPhoto(e.target.value, this.state.username)} />
-                <button onClick={() => this.props.showAllphoto()} >Submit</button>
+                <input type="text" name="" id="url" placeholder="Input photo url" onChange={(e) => this.getUrl(e.target.value)} />
+                <button onClick={() => this.props.uploadPhotoF(this.state.username, this.state.url)} >Submit</button>
             </div>
         );
     }
@@ -30,7 +35,7 @@ const mapDispatchToProps = (dispatch) => {
         showAllphoto: () => {
             return dispatch({ type: "ShowAllPhoto" });
         },
-        uploadPhoto: (url, username) => {
+        uploadPhotoF: (username, url) => {
             return dispatch({ type: "UploadPhoto", username, url });
         }
     };
